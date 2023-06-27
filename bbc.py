@@ -23,7 +23,7 @@ selectors = {
 # Set Chrome options and configure the WebDriver
 chrome_options = Options()
 chrome_options.add_argument("--headless")  # Run Chrome in headless mode
-driver_path = os.getenv("CHROMEDRIVER_PATH")
+driver_path = os.getenv("CHROMEDRIVER_PATH")  # add path to .env file
 service = Service(driver_path)
 
 # Create a folder to store the downloaded articles
