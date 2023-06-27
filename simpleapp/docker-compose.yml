@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: IsiTechnicalbackend
+      POSTGRES_USER: IsiTechnical
+      POSTGRES_PASSWORD: 12345678Isi
+
+  web:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+
+volumes:
+  postgres_data:
